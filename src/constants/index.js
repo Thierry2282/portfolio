@@ -229,7 +229,6 @@ export const projects = [
                 <span class="description-point">Best Build hackathon project demonstrating teamwork skills.</span>
             </div>
         `,
-        // link: 'https://spam-detection-tool-1.onrender.com',
         github: 'https://github.com/Thierry2282/offre-emploi', 
     },
     {
@@ -243,7 +242,6 @@ export const projects = [
               <span class="description-point">The project thus helps identify the most profitable actions to increase profit while optimizing marketing return on investment.</span>
             </div>
         `,
-        // link: 'http://mayuresh-khole-profile.web.app/',
         github: 'https://github.com/Thierry2282/marketing-analysis', 
     },
     {
@@ -258,7 +256,6 @@ export const projects = [
                 <span class="description-point">Smart Recommendations: AI-based investment advice. </span> 
             </div>
         `,
-        // link: 'https://post-it-social-web-app.vercel.app/auth',
         github: 'https://github.com/Thierry2282/riskvision.git', 
     },
     {
@@ -271,7 +268,19 @@ export const projects = [
                 <span class="description-point">Designed an intuitive user interface for visitors.</span>
             </div>
         `,
-        // link: 'https://startup-portfoilio-website.vercel.app/',
         github: 'https://github.com/Thierry2282/portfolio', 
-    }
+    },
+    {
+        iconUrl: endurify,
+        theme: 'btn-back-red',
+        name: 'Miam',
+        description: `
+            <div class="description-points"> 
+            <span class="description-point">Online ordering platform with integrated payment. </span>
+             <span class="description-point">Discover the most popular meals and enjoy a personalized recommendation system to guide your choices. </span>
+              <span class="description-point">Order quickly and easily from anywhere and have your favorite meals delivered straight to your door.</span>
+            </div>
+        `,
+        github: 'https://github.com/Thierry2282/miam', 
+    },
 ];

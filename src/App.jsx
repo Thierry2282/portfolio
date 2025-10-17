@@ -8,6 +8,9 @@ import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import ARExperience from "./pages/ARExperience";
 import './App.css';
+import './i18n';
+
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,6 +18,7 @@ const App = () => {
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
 
   return (
     <Router>

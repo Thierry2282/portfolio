@@ -46,165 +46,127 @@ import {
     GoogleCloud,
 } from "../assets/icons";
 
-export const skills = [
-
+export const getSkills = (t) => [
     {
         imageUrl: StackOverflow,
-        name: "StackOverflow",
-        type: "Tool",
+        name: t('skills.names.stackoverflow'),
+        type: t('skills.categories.tool'),
     },
     {
         imageUrl: Opencv,
-        name: "Opencv",
-        type: "Tool",
+        name: t('skills.names.opencv'),
+        type: t('skills.categories.tool'),
     },
     {
         imageUrl: pycharm,
-        name: "pycharm",
-        type: "Tool",
+        name: t('skills.names.pycharm'),
+        type: t('skills.categories.tool'),
     },
     {
         imageUrl: jupyter,
-        name: "jupyter",
-        type: "Tool",
+        name: t('skills.names.jupyter'),
+        type: t('skills.categories.tool'),
     },
-
     {
         imageUrl: VS_code,
-        name: "VS_code",
-        type: "Tool",
+        name: t('skills.names.vs_code'),
+        type: t('skills.categories.tool'),
     },
-
-
     {
         imageUrl: numpy,
-        name: "numpy",
-        type: "Backend",
+        name: t('skills.names.numpy'),
+        type: t('skills.categories.backend'),
     },
-
     {
         imageUrl: css,
-        name: "CSS",
-        type: "Frontend",
+        name: t('skills.names.css'),
+        type: t('skills.categories.frontend'),
     },
     {
         imageUrl: tensorflow,
-        name: "tensorflow",
-        type: "Backend",
+        name: t('skills.names.tensorflow'),
+        type: t('skills.categories.backend'),
     },
     {
         imageUrl: git,
-        name: "Git",
-        type: "Version Control",
+        name: t('skills.names.git'),
+        type: t('skills.categories.versionControl'),
     },
     {
         imageUrl: github,
-        name: "GitHub",
-        type: "Version Control",
+        name: t('skills.names.github'),
+        type: t('skills.categories.versionControl'),
     },
     {
         imageUrl: html,
-        name: "HTML",
-        type: "Frontend",
+        name: t('skills.names.html'),
+        type: t('skills.categories.frontend'),
     },
     {
         imageUrl: javascript,
-        name: "JavaScript",
-        type: "Frontend",
+        name: t('skills.names.javascript'),
+        type: t('skills.categories.frontend'),
     },
     {
         imageUrl: mui,
-        name: "Material-UI",
-        type: "Frontend",
+        name: t('skills.names.mui'),
+        type: t('skills.categories.frontend'),
     },
     {
         imageUrl: nodejs,
-        name: "Node.js",
-        type: "Backend",
+        name: t('skills.names.nodejs'),
+        type: t('skills.categories.backend'),
     },
     {
         imageUrl: react,
-        name: "React",
-        type: "Frontend",
+        name: t('skills.names.react'),
+        type: t('skills.categories.frontend'),
     },
     {
         imageUrl: redux,
-        name: "Redux",
-        type: "State Management",
+        name: t('skills.names.redux'),
+        type: t('skills.categories.stateManagement'),
     },
     {
         imageUrl: sass,
-        name: "Sass",
-        type: "Frontend",
+        name: t('skills.names.sass'),
+        type: t('skills.categories.frontend'),
     },
     {
         imageUrl: tailwindcss,
-        name: "Tailwind CSS",
-        type: "Frontend",
+        name: t('skills.names.tailwindcss'),
+        type: t('skills.categories.frontend'),
     },
 ];
 
-export const experiences = [
-
+export const getExperiences = (t) => [
     {
-        title: "WordPress Developer",
-        company_name: "OpenData Madagascar",
+        title: t('experiences.wordpress.title'),
+        company_name: t('experiences.wordpress.company'),
         icon: socialsummer1,
         iconBg: "#fbc3bc",
-        date: "January 2025 -  May 2025",
-        points: [
-            "Developing and maintaining Numerous Open source projects heavily contributed to the community and  values Organization.",
-
-            "Worked On Quinine Open source projects and Quests",
-
-            "Collaborating with  teams   and other developers to create high-quality products.",
-
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+        date: "Janvier 2025 - Mai 2025",
+        points: t('experiences.wordpress.points', { returnObjects: true }),
     },
     {
-        title: "Full-Stack Developer (React.js & Symfony)",
-        company_name: "Task",
+        title: t('experiences.fullstack.title'),
+        company_name: t('experiences.fullstack.company'),
         icon: starbucks,
         iconBg: "#accbe1",
-        date: "October 2024 - January 2025",
-        points: [
-
-            "Development of complete web applications using React.js for frontend and Symfony for backend",
-
-            "Design and management of databases with MySQL and implementation of MVC architecture",
-
-            'Creation of responsive and modern user interfaces with custom RESTful API integration',
-
-            "Deployment and maintenance of full-stack projects, mastering version control tools (Git) and Agile methodologies",
-
-        ],
+        date: "Octobre 2024 - Janvier 2025",
+        points: t('experiences.fullstack.points', { returnObjects: true }),
     },
     {
-        title: "Python Developer",
-        company_name: "Forage",
+        title: t('experiences.python.title'),
+        company_name: t('experiences.python.company'),
         icon: forage,
         iconBg: "#b7e4c7",
-        date: "Continuous",
-        points: [
-            "Through personal projects, I have built solid expertise in Python development",
-
-            "Particularly in data manipulation and analysis using Pandas and NumPy.",
-
-            "I have also implemented artificial intelligence projects with TensorFlow and OpenCV,",
-
-            "Mastering API integration and database management through hands-on implementation."       
-        ],
-  },
-    
+        date: "Continue",
+        points: t('experiences.python.points', { returnObjects: true }),
+    },
 ];
 
 export const socialLinks = [
-    // {
-    //     name: 'Contact',
-    //     iconUrl: contact,
-    //     link: '/contact',
-    // },
     {
         name: 'GitHub',
         iconUrl: github,
@@ -217,70 +179,40 @@ export const socialLinks = [
     }
 ];
 
-export const projects = [
+export const getProjects = (t) => [
     {
         iconUrl: spamdetection,
         theme: 'btn-back-blue',
-        name: 'M-i-asa',
-        description: `
-            <div class="description-points">
-                <span class="description-point">Developed a site for finding a job.</span>
-                <span class="description-point">Added a spam call detection feature with 98% accuracy.</span>
-                <span class="description-point">Best Build hackathon project demonstrating teamwork skills.</span>
-            </div>
-        `,
+        name: t('projects.miasa.name'),
+        description: t('projects.miasa.description', { returnObjects: true }),
         github: 'https://github.com/Thierry2282/offre-emploi', 
     },
     {
         iconUrl: endurify,
         theme: 'btn-back-red',
-        name: 'Advanced marketing analysis',
-        description: `
-            <div class="description-points"> 
-            <span class="description-point">Simulate different marketing strategies and prices to forecast the impact on future sales and profits. </span>
-             <span class="description-point">Calculate key metrics such as Revenue, Profit, and Marketing ROI. </span>
-              <span class="description-point">The project thus helps identify the most profitable actions to increase profit while optimizing marketing return on investment.</span>
-            </div>
-        `,
+        name: t('projects.marketing.name'),
+        description: t('projects.marketing.description', { returnObjects: true }),
         github: 'https://github.com/Thierry2282/marketing-analysis', 
     },
     {
         iconUrl: postit,
         theme: 'btn-back-green',
-        name: 'RiskVision',
-        description: `
-            <div class="description-points"> 
-                <span class="description-point">Real-Time Data Analysis: Automatic retrieval of market data via Yahoo Finance. </span> 
-                <span class="description-point">Monte Carlo Simulations: 10,000 price scenarios to assess risks. </span> 
-                <span class="description-point">Artificial Intelligence: LSTM models for trend prediction. </span> 
-                <span class="description-point">Smart Recommendations: AI-based investment advice. </span> 
-            </div>
-        `,
+        name: t('projects.riskvision.name'),
+        description: t('projects.riskvision.description', { returnObjects: true }),
         github: 'https://github.com/Thierry2282/riskvision.git', 
     },
     {
         iconUrl: endurify,
         theme: 'btn-back-blue',
-        name: 'My Portfolio Website',
-        description: `
-            <div class="description-points">
-                <span class="description-point">Portfolio website with ReactJs. </span>
-                <span class="description-point">Designed an intuitive user interface for visitors.</span>
-            </div>
-        `,
+        name: t('projects.portfolio.name'),
+        description: t('projects.portfolio.description', { returnObjects: true }),
         github: 'https://github.com/Thierry2282/portfolio', 
     },
     {
         iconUrl: endurify,
         theme: 'btn-back-red',
-        name: 'Miam',
-        description: `
-            <div class="description-points"> 
-            <span class="description-point">Online ordering platform with integrated payment. </span>
-             <span class="description-point">Discover the most popular meals and enjoy a personalized recommendation system to guide your choices. </span>
-              <span class="description-point">Order quickly and easily from anywhere and have your favorite meals delivered straight to your door.</span>
-            </div>
-        `,
+        name: t('projects.miam.name'),
+        description: t('projects.miam.description', { returnObjects: true }),
         github: 'https://github.com/Thierry2282/miam', 
     },
 ];

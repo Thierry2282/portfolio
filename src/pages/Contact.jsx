@@ -1,125 +1,100 @@
-import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 
 import { Fox } from "../models";
 import useAlert from "../hooks/useAlert";
 import { Alert, Loader } from "../components";
+import { useTranslation } from "react-i18next";
+import '../i18n.js';
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const { alert, showAlert, hideAlert } = useAlert();
-  const [loading, setLoading] = useState(false);
   const [currentAnimation, setCurrentAnimation] = useState("idle");
-
-  const handleChange = ({ target: { name, value } }) => {
-    setForm({ ...form, [name]: value });
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { alert, showAlert, hideAlert } = useAlert();
 
   const handleFocus = () => setCurrentAnimation("walk");
   const handleBlur = () => setCurrentAnimation("idle");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
+    setIsSubmitting(true);
     setCurrentAnimation("hit");
-
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Thierry Juliot",
-          from_email: form.email,
-          to_email: "thierryjuliotr@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          showAlert({
-            show: true,
-            text: "Thank you for your message 😃",
-            type: "success",
-          });
-
-          setTimeout(() => {
-            hideAlert(false);
-            setCurrentAnimation("idle");
-            setForm({
-              name: "",
-              email: "",
-              message: "",
-            });
-          }, [3000]);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          setCurrentAnimation("idle");
-
-          showAlert({
-            show: true,
-            text: "I didn't receive your message 😢",
-            type: "danger",
-          });
-        }
-      );
+    
+    // Afficher un message de succès immédiatement
+    setTimeout(() => {
+      showAlert({
+        show: true,
+        text: "Merci pour votre message ! Je vous répondrai rapidement 😃",
+        type: "success",
+      });
+      
+      setTimeout(() => {
+        hideAlert(false);
+        setCurrentAnimation("idle");
+        setIsSubmitting(false);
+      }, 5000);
+    }, 1000);
   };
+
+  const { t } = useTranslation();
 
   return (
     <section className='relative flex lg:flex-row flex-col max-container'>
       {alert.show && <Alert {...alert} />}
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='head-text'>Get in Touch</h1>
+        <h1 className='head-text'>{t('pages.contact.title')}</h1>
 
         <form
-          ref={formRef}
+          action="https://formsubmit.co/3e768af97e05f0c7e925516d4b5f08cd"
+          method="POST"
           onSubmit={handleSubmit}
           className='w-full flex flex-col gap-7 mt-14'
         >
+          {/* Champs cachés pour la configuration FormSubmit */}
+          <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio !" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input 
+            type="hidden" 
+            name="_next" 
+            value={`${window.location.origin}/thank-you`} 
+          />
+          <input type="hidden" name="_autoresponse" value="Merci pour votre message ! Je vous répondrai dans les plus brefs délais. - Thierry" />
+          
           <label className='text-black-500 font-semibold'>
-            Name
+            {t('pages.contact.name')}
             <input
               type='text'
               name='name'
               className='input'
-              placeholder='John'
+              placeholder='Votre nom'
               required
-              value={form.name}
-              onChange={handleChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
           </label>
+          
           <label className='text-black-500 font-semibold'>
-            Email
+            {t('pages.contact.email')}
             <input
               type='email'
               name='email'
               className='input'
-              placeholder='John@gmail.com'
+              placeholder='votre@email.com'
               required
-              value={form.email}
-              onChange={handleChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
           </label>
+          
           <label className='text-black-500 font-semibold'>
-            Your Message
+            {t('pages.contact.message')}
             <textarea
               name='message'
               rows='4'
               className='textarea'
-              placeholder='Write your thoughts here...'
-              value={form.message}
-              onChange={handleChange}
+              placeholder='Votre message...'
+              required
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
@@ -127,14 +102,24 @@ const Contact = () => {
 
           <button
             type='submit'
-            disabled={loading}
+            disabled={isSubmitting}
             className='btn'
             onFocus={handleFocus}
             onBlur={handleBlur}
           >
-            {loading ? "Sending..." : "Submit"}
+            {isSubmitting ? t('pages.contact.button.sending') : t('pages.contact.button.submit')}
           </button>
         </form>
+
+        <div className="mt-8 text-sm text-slate-600">
+          <p>📧 Vous pouvez aussi m'envoyer un email directement à :</p>
+          <a 
+            href="mailto:thierryjuliotr@gmail.com" 
+            className="text-blue-600 hover:underline font-semibold"
+          >
+            thierryjuliotr@gmail.com
+          </a>
+        </div>
       </div>
 
       <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>

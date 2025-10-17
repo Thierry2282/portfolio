@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 
 import { socialLinks } from "../constants";
+import { useTranslation } from "react-i18next";
+import '../i18n';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className='footer font-poppins'>
       <hr className='border-slate-200' />
 
       <div className='footer-container'>
         <p>
-          Crafted by <strong>Thierry Juliot</strong>
+        {t('pages.footer')}<strong>Thierry Juliot</strong>
         </p>
 
         <div className='flex gap-10 justify-center items-center'>

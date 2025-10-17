@@ -4,29 +4,39 @@ import {
 } from "react-vertical-timeline-component";
 
 import { CTA } from "../components";
-import { experiences, skills } from "../constants";
+import { getExperiences, getSkills } from "../constants";
 
 import "react-vertical-timeline-component/style.min.css";
+import { Trans,useTranslation } from "react-i18next";
+import '../i18n.js';
+
 
 const About = () => {
+  const {t}= useTranslation();
+  const skills = getSkills(t);
+  const experiences = getExperiences(t);
+  
   return (
     <section className='max-container'>
       <h1 className='head-text'>
-        Hello, I'm{" "}
+        {t('pages.about.header.hello')}{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
-          Thierry <br />  Fullstack Developer
+          Thierry <br />  {t('pages.about.header.info')}
         </span>{" "}
         👋
       </h1>
 
       <div className='mt-5 flex flex-col gap-3 text-slate-700'>
         <p className="text-lg">
-          Welcome to My Portfolio
-I am a passionate <b>full-stack developer</b> specialized in building modern web applications, from dynamic <b>React.js</b> interfaces to robust <b>Symfony and PHP</b> back-end systems. My experience spans developing complete platforms, participating in collaborative projects like <b>hackathons</b>, and creating professional <b>WordPress </b>solutions. I am seeking a new opportunity where I can leverage my technical skills and team spirit to contribute to innovative projects.        </p>
+          <Trans i18nKey="pages.about.body.presentation" 
+            components={{
+              b: <b/>,
+          }}
+          /></p>
       </div>
 
       <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>My Skills</h3>
+        <h3 className='subhead-text'>{t('pages.about.body.title1')}</h3>
 
         <div className='mt-16 flex flex-wrap gap-12'>
           {skills.map((skill) => (
@@ -45,10 +55,9 @@ I am a passionate <b>full-stack developer</b> specialized in building modern web
       </div>
 
       <div className='py-16'>
-        <h3 className='subhead-text'>Work Experience.</h3>
+        <h3 className='subhead-text'>{t('pages.about.body.title2')}</h3>
         <div className='mt-5 flex flex-col gap-3 text-slate-700'>
-          <p className="text-lg">
-My immersion in the startup ecosystem has given me a pragmatic approach to software development. I actively contributed to the design and delivery of complex web solutions, adapting to the dynamic needs of this demanding environment. This experience sharpened my ability to rapidly transform concepts into operational features while maintaining high technical standards.          </p>
+          <p className="text-lg">{t('pages.about.body.context')}</p>        
         </div>
 
         <div className='mt-12 flex'>

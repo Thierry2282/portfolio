@@ -1,0 +1,156 @@
+{
+    "pages": {
+        "about": {
+        "header": {
+            "hello": "Hello, I'm",
+            "info": "Fullstack Developer"
+        },
+        "body": {
+            "presentation": "Welcome to my portfolio! I am a passionate <b>full-stack developer</b>, specialized in creating modern web applications, from dynamic <b>React.js</b> interfaces to robust <b>Symfony and PHP</b> back-end systems. My experience covers the development of complete platforms, participation in collaborative projects like <b>hackathons</b>, and the creation of professional <b>WordPress</b> solutions. I am seeking a new opportunity where I can leverage my technical skills and team spirit to contribute to innovative projects.",
+            "title1": "My Skills",
+            "title2": "Professional Experience",
+            "context": "My immersion in the startup ecosystem has given me a pragmatic approach to software development. I actively contributed to the design and delivery of complex web solutions, adapting to the dynamic needs of this demanding environment. This experience sharpened my ability to rapidly transform concepts into operational features while maintaining high technical standards."
+        }
+        },
+        "projects": {
+            "title1": "My",
+            "title2": "Projects",
+            "presentation": "Welcome to my portfolio. Here, you will find a selection of projects I particularly enjoyed building, as they best represent my passion for development. Each one presented an opportunity to learn and push my boundaries, much like my contributions to the open-source world. Feel free to explore the code for these projects; your feedback and improvement ideas are welcome."
+        },
+        "navbar": {
+            "home": "Home",
+            "about": "About",
+            "projects": "Projects",
+            "resume": "Resume"
+        },
+        "contact":{
+            "title": "Get in Touch",
+            "name": "Name",
+            "email": "Email",
+            "message": "Your Message",
+            "button":{
+                "sending": "Sending...",
+                "submit": "Submit"
+            }
+        },
+        "cta":{
+            "paragraph1": "Have a project in mind?",
+            "paragraph2": "Let's collaborate and bring your ideas to life!"
+        },
+        "footer": "Crafted by ",
+        "resume": {
+          "title":"Resume",
+          "download":"Download Resume"
+        }
+  },
+  "skills": {
+    "categories": {
+      "tool": "Tool",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "versionControl": "Version Control",
+      "stateManagement": "State Management"
+    },
+    "names": {
+      "stackoverflow": "Stack Overflow",
+      "opencv": "OpenCV",
+      "pycharm": "PyCharm",
+      "jupyter": "Jupyter",
+      "vs_code": "VS Code",
+      "numpy": "NumPy",
+      "css": "CSS",
+      "tensorflow": "TensorFlow",
+      "git": "Git",
+      "github": "GitHub",
+      "html": "HTML",
+      "javascript": "JavaScript",
+      "mui": "Material-UI",
+      "nodejs": "Node.js",
+      "react": "React",
+      "redux": "Redux",
+      "sass": "Sass",
+      "tailwindcss": "Tailwind CSS"
+    }
+  },
+  "experiences": {
+    "wordpress": {
+      "title": "WordPress Developer",
+      "company": "OpenData Madagascar",
+      "points": [
+        "Developing and maintaining Numerous Open source projects heavily contributed to the community and values Organization.",
+        "Worked On Quinine Open source projects and Quests.",
+        "Collaborating with teams and other developers to create high-quality products.",
+        "Participating in code reviews and providing constructive feedback to other developers."
+      ]
+    },
+    "fullstack": {
+      "title": "Full-Stack Developer (React.js & Symfony)",
+      "company": "Task",
+      "points": [
+        "Development of complete web applications using React.js for frontend and Symfony for backend.",
+        "Design and management of databases with MySQL and implementation of MVC architecture.",
+        "Creation of responsive and modern user interfaces with custom RESTful API integration.",
+        "Deployment and maintenance of full-stack projects, mastering version control tools (Git) and Agile methodologies."
+      ]
+    },
+    "python": {
+      "title": "Python Developer",
+      "company": "Forage",
+      "points": [
+        "Through personal projects, I have built solid expertise in Python development.",
+        "Particularly in data manipulation and analysis using Pandas and NumPy.",
+        "I have also implemented artificial intelligence projects with TensorFlow and OpenCV.",
+        "Mastering API integration and database management through hands-on implementation."
+      ]
+    }
+  },
+  "projects": {
+    "projects":{
+            "title1": "My",
+            "title2": "Projects",
+            "presentation": "Welcome to my portfolio. Here, you will find a selection of projects I particularly enjoyed building, as they best represent my passion for development. Each one presented an opportunity to learn and push my boundaries, much like my contributions to the open-source world. Feel free to explore the code for these projects; your feedback and ideas for improvement are greatly appreciated.",
+            "technologies": ["React", "JavaScript", "CSS", "HTML"],
+            "link": "https://votreportfolio.com"
+        },
+    "miasa": {
+      "name": "M-i-asa",
+      "description": [
+        "Developed a site for finding a job.",
+        "Added a spam call detection feature with 98% accuracy.",
+        "Best Build hackathon project demonstrating teamwork skills."
+      ]
+    },
+    "marketing": {
+      "name": "Advanced marketing analysis",
+      "description": [
+        "Simulate different marketing strategies and prices to forecast the impact on future sales and profits.",
+        "Calculate key metrics such as Revenue, Profit, and Marketing ROI.",
+        "The project thus helps identify the most profitable actions to increase profit while optimizing marketing return on investment."
+      ]
+    },
+    "riskvision": {
+      "name": "RiskVision",
+      "description": [
+        "Real-Time Data Analysis: Automatic retrieval of market data via Yahoo Finance.",
+        "Monte Carlo Simulations: 10,000 price scenarios to assess risks.",
+        "Artificial Intelligence: LSTM models for trend prediction.",
+        "Smart Recommendations: AI-based investment advice."
+      ]
+    },
+    "portfolio": {
+      "name": "My Portfolio Website",
+      "description": [
+        "Portfolio website with ReactJs.",
+        "Designed an intuitive user interface for visitors."
+      ]
+    },
+    "miam": {
+      "name": "Miam",
+      "description": [
+        "Online ordering platform with integrated payment.",
+        "Discover the most popular meals and enjoy a personalized recommendation system to guide your choices.",
+        "Order quickly and easily from anywhere and have your favorite meals delivered straight to your door."
+      ]
+    }
+  }
+}

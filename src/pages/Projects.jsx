@@ -1,21 +1,25 @@
 import { Link } from "react-router-dom";
 import { CTA } from "../components";
-import { projects } from "../constants";
+import { getProjects } from "../constants";
 import { arrow, github } from "../assets/icons"; // Assuming you have a GitHub icon in your assets
 import styles from '../../src/styles/Projects.css?inline'; // Adjust path as needed
+import { Trans,useTranslation } from "react-i18next";
+import '../i18n.js';
 
 const Projects = () => {
+  const {t}= useTranslation();
+  const projects = getProjects(t);
   return (
     <section className='max-container'>
       <h1 className='head-text'>
-        My{" "}
+        {t('pages.projects.title1')}{" "}
         <span className='blue-gradient_text drop-shadow font-semibold'>
-          Projects
+          {t('pages.projects.title2')}
         </span>
       </h1>
 
       <p className='text-slate-700 mt-2 leading-relaxed text-lg'>
-        Welcome to my portfolio. Here, you will find a selection of projects I particularly enjoyed building, as they best represent my passion for development. Each one presented an opportunity to learn and push my boundaries, much like my contributions to the open-source world. Feel free to explore the code for these projects; your feedback and ideas for improvement are greatly appreciated.
+        {t('pages.projects.presentation')}      
       </p>
 
       <div className='flex flex-wrap my-20 gap-16'>

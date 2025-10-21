@@ -15,24 +15,71 @@ const Contact = () => {
   const handleFocus = () => setCurrentAnimation("walk");
   const handleBlur = () => setCurrentAnimation("idle");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
     setCurrentAnimation("hit");
-    
-    // Afficher un message de succès immédiatement
-    setTimeout(() => {
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      // Essayer d'abord sans proxy
+      let response;
+      try {
+        response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+      } catch (networkError) {
+        // Si échec sans proxy, essayer avec proxy
+        console.log('Essai avec proxy CORS...');
+        const proxyUrl = 'https://corsproxy.io/?';
+        const targetUrl = encodeURIComponent(form.action);
+        response = await fetch(proxyUrl + targetUrl, {
+          method: "POST",
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+      }
+
+      // Vérifier si la réponse est vraiment OK
+      if (response && response.ok) {
+        const result = await response.json();
+        
+        // FormSubmit renvoie {success: true} quand ça marche
+        if (result.success === true || response.status === 200) {
+          showAlert({
+            show: true,
+            text: "Merci pour votre message ! Je vous répondrai rapidement 😃",
+            type: "success",
+          });
+          form.reset();
+        } else {
+          throw new Error('Erreur du serveur');
+        }
+      } else {
+        throw new Error('Erreur réseau');
+      }
+    } catch (error) {
+      console.error('Erreur détaillée:', error);
       showAlert({
         show: true,
-        text: "Merci pour votre message ! Je vous répondrai rapidement 😃",
-        type: "success",
+        text: "Erreur d'envoi. Veuillez m'envoyer un email directement à thierryjuliotr@gmail.com",
+        type: "danger",
       });
-      
+    } finally {
       setTimeout(() => {
         hideAlert(false);
         setCurrentAnimation("idle");
         setIsSubmitting(false);
       }, 5000);
-    }, 1000);
+    }
   };
 
   const { t } = useTranslation();
@@ -45,7 +92,7 @@ const Contact = () => {
         <h1 className='head-text'>{t('pages.contact.title')}</h1>
 
         <form
-          action="https://formsubmit.co/3e768af97e05f0c7e925516d4b5f08cd"
+          action="https://formsubmit.co/ajax/3e768af97e05f0c7e925516d4b5f08cd"
           method="POST"
           onSubmit={handleSubmit}
           className='w-full flex flex-col gap-7 mt-14'
@@ -54,11 +101,6 @@ const Contact = () => {
           <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio !" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <input 
-            type="hidden" 
-            name="_next" 
-            value={`${window.location.origin}/thank-you`} 
-          />
           <input type="hidden" name="_autoresponse" value="Merci pour votre message ! Je vous répondrai dans les plus brefs délais. - Thierry" />
           
           <label className='text-black-500 font-semibold'>
